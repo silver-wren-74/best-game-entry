@@ -70,8 +70,8 @@ export class Renderer {
   // ------------------------------------------------------------------ scene
 
   drawBackground(game) {
-    const { ctx, world } = this;
-    const { width, height } = game;
+    const { ctx } = this;
+    const { world, width, height } = game;
     ctx.fillStyle = COLORS.background;
     ctx.fillRect(-24, -24, width + 48, height + 48);
 
@@ -341,8 +341,8 @@ export class Renderer {
   // -------------------------------------------------------------------- HUD
 
   drawHud(game) {
-    const { ctx, world } = this;
-    const { width } = game;
+    const { ctx } = this;
+    const { world, width } = game;
     const p = world.player;
     ctx.save();
     ctx.textBaseline = 'top';
@@ -416,7 +416,8 @@ export class Renderer {
   }
 
   drawWaveBanner(game) {
-    const { ctx, world } = this;
+    const { ctx } = this;
+    const { world } = game;
     const alpha = Math.min(1, game.waveBannerTimer / 0.5);
     ctx.save();
     ctx.globalAlpha = alpha;
@@ -499,8 +500,8 @@ export class Renderer {
   }
 
   drawGameOverScreen(game) {
-    const { ctx, world } = this;
-    const { width, height } = game;
+    const { ctx } = this;
+    const { world, width, height } = game;
     ctx.save();
     ctx.fillStyle = 'rgba(10, 3, 10, 0.62)';
     ctx.fillRect(0, 0, width, height);
